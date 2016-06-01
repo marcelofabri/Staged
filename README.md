@@ -55,11 +55,11 @@ pod "Staged"
 
 Marcelo Fabri, me@marcelofabri.com
 
-# Thanks
+## Thanks
 
 - [Jon Reid](https://twitter.com/qcoding) for creating [MockUIAlertController](https://github.com/jonreid/MockUIAlertController), from which I borrowed the idea and the initial implementation.
 
-# Need help?
+## Need help?
 
 Please submit an issue on GitHub and provide information about your setup.
 
