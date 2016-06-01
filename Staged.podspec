@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'Staged'
   s.version          = '0.1.0'
-  s.summary          = 'Mock View Controllers presentations and dismissions on unit tests'
+  s.summary          = 'Mock View Controllers presentations and dismissals on unit tests'
   s.description      = <<-DESC
 Staged allows you to easily mock View Controllers presentations and dismissals, so you don't have to create a window just to test them.
                        DESC
@@ -16,6 +16,6 @@ Staged allows you to easily mock View Controllers presentations and dismissals, 
 
   s.source_files = 'Staged/Classes/**/*'
   
-  s.public_header_files = 'Pod/Classes/STGViewControllerVerifier.h'
+  s.public_header_files = 'Staged/Classes/STGViewControllerVerifier.h'
   s.frameworks = 'UIKit'
 end
