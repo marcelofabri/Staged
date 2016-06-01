@@ -1,0 +1,8 @@
+# .slather.yml
+
+coverage_service: cobertura_xml
+xcodeproj: Example/Staged.xcodeproj
+workspace: Example/Staged.xcworkspace
+scheme: Staged-Example
+source_directory: Staged/Classes
+output_directory: coverage
