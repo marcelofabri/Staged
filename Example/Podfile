@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'Staged_Example' do
+  pod 'Staged', :path => '../'
+
+  target 'Staged_Tests' do
+    inherit! :search_paths
+
+    pod 'Specta'
+  pod 'Expecta'
+  end
+end
