@@ -53,7 +53,7 @@ pod "Staged"
 
 ## Author
 
-Marcelo Fabri, me@marcelofabri.com
+Marcelo Fabri, [@marcelofabri_](https://twitter.com/marcelofabri_)
 
 ## Thanks
 
