@@ -48,7 +48,7 @@ static void swizzleMocks() {
 - (void)viewControllerWasDismissed:(NSNotification *)notification {
     self.dismissedCount++;
     self.dismissedViewController = notification.object;
-    self.dimissedAnimated = [notification.userInfo[STGViewControllerPresentationAnimatedKey] boolValue];
+    self.dismissedAnimated = [notification.userInfo[STGViewControllerPresentationAnimatedKey] boolValue];
 }
 
 @end

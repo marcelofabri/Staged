@@ -17,6 +17,6 @@
 
 @property (nonatomic) NSUInteger dismissedCount;
 @property (nonatomic, strong, nullable) __kindof UIViewController *dismissedViewController;
-@property (nonatomic) BOOL dimissedAnimated;
+@property (nonatomic) BOOL dismissedAnimated;
 
 @end
