@@ -1,42 +1,21 @@
-#
-# Be sure to run `pod lib lint Staged.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'Staged'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of Staged.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
+  s.summary          = 'Mock View Controllers presentations and dismissions on unit tests'
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Staged allows you to easily mock View Controllers presentations and dismissals, so you don't have to create a window just to test them.
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/Staged'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/marcelofabri/Staged'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Marcelo Fabri' => 'marcelofabrimf@gmail.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/Staged.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'Marcelo Fabri' => 'me@marcelofabri.com' }
+  s.source           = { :git => 'https://github.com/marcelofabri/Staged.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/marcelofabri_'
 
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'Staged/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'Staged' => ['Staged/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.public_header_files = 'Pod/Classes/STGViewControllerVerifier.h'
+  s.frameworks = 'UIKit'
 end

@@ -5,11 +5,42 @@
 [![License](https://img.shields.io/cocoapods/l/Staged.svg?style=flat)](http://cocoapods.org/pods/Staged)
 [![Platform](https://img.shields.io/cocoapods/p/Staged.svg?style=flat)](http://cocoapods.org/pods/Staged)
 
-## Example
+Staged allows you to easily mock View Controllers presentations and dismissals, so you don't have to create a window just to test them.
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+## Usage
+
+Just import `#import <Staged/STGViewControllerVerifier.h>` and use like this:
+
+```objc
+STGViewControllerVerifier *verifier = [[STGViewControllerVerifier alloc] init];
+UIViewController *viewController = [[UIViewController alloc] init];
+
+// sut is the system under test
+[sut presentSomeOtherControllerOn:viewController];
+
+expect(verifier.presenterViewController).to.equal(viewController);
+expect(verifier.presentedViewController).to.beKindOf([SomeCoolViewController class]);
+expect(verifier.presentedAnimated).to.beTruthy();
+expect(verifier.presentedCount).to.equal(1);
+```
+
+This is using [Expecta](https://github.com/specta/expecta) matchers, but you can be boring and use the default ones as well.
+
+You can also check if a view controller was dismissed: 
+
+```objc
+STGViewControllerVerifier *verifier = [[STGViewControllerVerifier alloc] init];
+
+[sut doSomethingThatShouldDismissAViewController];
+
+expect(verifier.dismissedViewController).to.beKindOf([SomeCoolViewController class]);
+expect(verifier.dimissedAnimated).to.beFalsy();
+expect(verifier.dismissedCount).to.equal(1);
+```
 
 ## Requirements
+
+iOS 8
 
 ## Installation
 
@@ -22,7 +53,15 @@ pod "Staged"
 
 ## Author
 
-Marcelo Fabri, marcelofabrimf@gmail.com
+Marcelo Fabri, me@marcelofabri.com
+
+# Thanks
+
+- [Jon Reid](https://twitter.com/qcoding) for creating [MockUIAlertController](https://github.com/jonreid/MockUIAlertController), from which I borrowed the idea and the initial implementation.
+
+# Need help?
+
+Please submit an issue on GitHub and provide information about your setup.
 
 ## License
 
