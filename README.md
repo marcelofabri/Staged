@@ -1,6 +1,6 @@
 # Staged
 
-[![CI Status](http://img.shields.io/travis/Marcelo Fabri/Staged.svg?style=flat)](https://travis-ci.org/Marcelo Fabri/Staged)
+[![CI Status](http://img.shields.io/travis/marcelofabri/Staged.svg?style=flat)](https://travis-ci.org/marcelofabri/Staged)
 [![Version](https://img.shields.io/cocoapods/v/Staged.svg?style=flat)](http://cocoapods.org/pods/Staged)
 [![License](https://img.shields.io/cocoapods/l/Staged.svg?style=flat)](http://cocoapods.org/pods/Staged)
 [![Platform](https://img.shields.io/cocoapods/p/Staged.svg?style=flat)](http://cocoapods.org/pods/Staged)
