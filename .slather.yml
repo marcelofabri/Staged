@@ -6,6 +6,7 @@ workspace: Example/Staged.xcworkspace
 scheme: Staged-Example
 source_directory: Staged/Classes
 output_directory: coverage
+build_directory: build
 ignore:
   - Example/*
   - "../*"
