@@ -1,6 +1,0 @@
-framework module Pods_Staged_Example {
-  umbrella header "Pods-Staged_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}

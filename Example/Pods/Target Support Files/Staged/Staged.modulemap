@@ -1,6 +1,0 @@
-framework module Staged {
-  umbrella header "Staged-umbrella.h"
-
-  export *
-  module * { export * }
-}

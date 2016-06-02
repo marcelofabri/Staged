@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## Staged
 
-Copyright (c) 2016 Marcelo Fabri <marcelofabrimf@gmail.com>
+Copyright (c) 2016 Marcelo Fabri <me@marcelofabri.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

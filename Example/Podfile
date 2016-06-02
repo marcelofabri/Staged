@@ -1,4 +1,6 @@
-use_frameworks!
+install! 'cocoapods', :share_schemes_for_development_pods => ['Staged']
+
+plugin 'slather'
 
 target 'Staged_Example' do
   pod 'Staged', :path => '../'
