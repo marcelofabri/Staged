@@ -1,0 +1,1 @@
+../../../../../Staged/Classes/STGViewControllerVerifier.h

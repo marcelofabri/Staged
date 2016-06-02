@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A08108B79883AC7E30F42911C835367"
-               BuildableName = "Staged.framework"
+               BlueprintIdentifier = "F1D88268FCA0C48B6A958A372FDC9BE5"
+               BuildableName = "libStaged.a"
                BlueprintName = "Staged"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -30,6 +30,15 @@
       codeCoverageEnabled = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F1D88268FCA0C48B6A958A372FDC9BE5"
+            BuildableName = "libStaged.a"
+            BlueprintName = "Staged"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -46,8 +55,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2A08108B79883AC7E30F42911C835367"
-            BuildableName = "Staged.framework"
+            BlueprintIdentifier = "F1D88268FCA0C48B6A958A372FDC9BE5"
+            BuildableName = "libStaged.a"
             BlueprintName = "Staged"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
@@ -61,6 +70,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F1D88268FCA0C48B6A958A372FDC9BE5"
+            BuildableName = "libStaged.a"
+            BlueprintName = "Staged"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
