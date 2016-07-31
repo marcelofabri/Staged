@@ -7,7 +7,7 @@
 //
 
 #import "UIViewController+Staged.h"
-#import <objc/runtime.h>
+#import "UIViewController+StagedSwizziling.h"
 
 NSString * const STGViewControllerWasPresentedNotificationName = @"STGViewControllerPresentationNotificationName";
 NSString * const STGViewControllerWasDismissedNotificationName = @"STGViewControllerWasDismissedNotificationName";
@@ -16,12 +16,6 @@ NSString * const STGViewControllerPresentationAnimatedKey = @"STGViewControllerP
 NSString * const STGViewControllerPresentationPresenterViewControllerKey = @"STGViewControllerPresentationPresenterViewControllerKey";
 
 @implementation UIViewController (Staged)
-
-+ (void)stg_replaceInstanceMethod:(SEL)original withMethod:(SEL)swizzled {
-    Method originalMethod = class_getInstanceMethod(self, original);
-    Method swizzledMethod = class_getInstanceMethod(self, swizzled);
-    method_exchangeImplementations(originalMethod, swizzledMethod);
-}
 
 + (void)stg_swizzle {
     [self stg_replaceInstanceMethod:@selector(presentViewController:animated:completion:)
