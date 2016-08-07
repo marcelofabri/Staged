@@ -71,6 +71,20 @@ describe(@"navigation controller popping", ^{
 
         expect(verifier.viewControllers).to.haveCountOf(1);
     });
+
+    it(@"can pop to root view controller", ^{
+        UIViewController *fooViewController = [[UIViewController alloc] init];
+        [navigationController pushViewController:fooViewController animated:YES];
+
+        UIViewController *barViewController = [[UIViewController alloc] init];
+        [navigationController pushViewController:barViewController animated:YES];
+
+        [navigationController popToRootViewControllerAnimated:YES];
+
+        expect(verifier.viewControllers).to.haveCountOf(1);
+        expect(verifier.topViewController).to.equal(rootViewController);
+        expect(verifier.poppedAnimated).to.beTruthy();
+    });
 });
 
 SpecEnd

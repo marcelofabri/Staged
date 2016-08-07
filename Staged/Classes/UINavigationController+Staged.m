@@ -11,6 +11,7 @@
 
 NSString * const STGViewControllerWasPushedNotificationName = @"STGViewControllerWasPushedNotificationName";
 NSString * const STGViewControllerWasPoppedNotificationName = @"STGViewControllerWasPoppedNotificationName";
+NSString * const STGViewControllerWasPoppedToRootNotificationName = @"STGViewControllerWasPoppedToRootNotificationName";
 
 NSString * const STGViewControllerPushingAnimatedKey = @"STGViewControllerPushingAnimatedKey";
 NSString * const STGViewControllerPoppingAnimatedKey = @"STGViewControllerPoppingAnimatedKey";
@@ -23,6 +24,9 @@ NSString * const STGViewControllerPoppingAnimatedKey = @"STGViewControllerPoppin
 
     [self stg_replaceInstanceMethod:@selector(popViewControllerAnimated:)
                          withMethod:@selector(stg_popViewControllerAnimated:)];
+
+    [self stg_replaceInstanceMethod:@selector(popToRootViewControllerAnimated:)
+                         withMethod:@selector(stg_popToRootViewControllerAnimated:)];
 }
 
 - (void)stg_pushViewController:(UIViewController *)viewControllerToPush
@@ -39,6 +43,14 @@ NSString * const STGViewControllerPoppingAnimatedKey = @"STGViewControllerPoppin
                       object:self.topViewController
                     userInfo:@{STGViewControllerPoppingAnimatedKey: @(flag)}];
     return nil;
+}
+
+- (NSArray<UIViewController *> *)stg_popToRootViewControllerAnimated:(BOOL)flag {
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:STGViewControllerWasPoppedToRootNotificationName
+                      object:nil
+                    userInfo:@{STGViewControllerPoppingAnimatedKey: @(flag)}];
+    return @[];
 }
 
 @end
