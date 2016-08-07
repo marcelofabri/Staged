@@ -30,11 +30,11 @@ static void swizzleMocks() {
                                                    object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(navigationWasPoppedToRoot:)
-                                                     name:STGViewControllerWasPoppedToRootNotificationName
+                                                     name:STGNavigationControllerWasPoppedToRootNotificationName
                                                    object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(navigationWasPoppedToViewController:)
-                                                     name:STGViewControllerWasPoppedToViewControllerNotificationName
+                                                     name:STGNavigationControllerWasPoppedToViewControllerNotificationName
                                                    object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(navigationWasReset:)

@@ -11,8 +11,8 @@
 
 NSString * const STGViewControllerWasPushedNotificationName = @"STGViewControllerWasPushedNotificationName";
 NSString * const STGViewControllerWasPoppedNotificationName = @"STGViewControllerWasPoppedNotificationName";
-NSString * const STGViewControllerWasPoppedToRootNotificationName = @"STGViewControllerWasPoppedToRootNotificationName";
-NSString * const STGViewControllerWasPoppedToViewControllerNotificationName = @"STGViewControllerWasPoppedToViewControllerNotificationName";
+NSString * const STGNavigationControllerWasPoppedToRootNotificationName = @"STGNavigationControllerWasPoppedToRootNotificationName";
+NSString * const STGNavigationControllerWasPoppedToViewControllerNotificationName = @"STGNavigationControllerWasPoppedToViewControllerNotificationName";
 NSString * const STGNavigationControllerItemsWereSetNotificationName = @"STGNavigationControllerItemsWereSetNotificationName";
 
 NSString * const STGViewControllerPushingAnimatedKey = @"STGViewControllerPushingAnimatedKey";
@@ -55,7 +55,7 @@ NSString * const STGViewControllerPoppingAnimatedKey = @"STGViewControllerPoppin
 
 - (NSArray<UIViewController *> *)stg_popToRootViewControllerAnimated:(BOOL)flag {
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc postNotificationName:STGViewControllerWasPoppedToRootNotificationName
+    [nc postNotificationName:STGNavigationControllerWasPoppedToRootNotificationName
                       object:nil
                     userInfo:@{STGViewControllerPoppingAnimatedKey: @(flag)}];
     return @[];
@@ -64,7 +64,7 @@ NSString * const STGViewControllerPoppingAnimatedKey = @"STGViewControllerPoppin
 - (NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewControllerToStayOnTop
                                             animated:(BOOL)flag {
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc postNotificationName:STGViewControllerWasPoppedToViewControllerNotificationName
+    [nc postNotificationName:STGNavigationControllerWasPoppedToViewControllerNotificationName
                       object:viewControllerToStayOnTop
                     userInfo:@{STGViewControllerPoppingAnimatedKey: @(flag)}];
     return @[];

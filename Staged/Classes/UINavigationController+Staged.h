@@ -10,8 +10,8 @@
 
 FOUNDATION_EXPORT NSString *const STGViewControllerWasPushedNotificationName;
 FOUNDATION_EXPORT NSString *const STGViewControllerWasPoppedNotificationName;
-FOUNDATION_EXPORT NSString *const STGViewControllerWasPoppedToRootNotificationName;
-FOUNDATION_EXPORT NSString *const STGViewControllerWasPoppedToViewControllerNotificationName;
+FOUNDATION_EXPORT NSString *const STGNavigationControllerWasPoppedToRootNotificationName;
+FOUNDATION_EXPORT NSString *const STGNavigationControllerWasPoppedToViewControllerNotificationName;
 FOUNDATION_EXPORT NSString *const STGNavigationControllerItemsWereSetNotificationName;
 
 FOUNDATION_EXPORT NSString *const STGViewControllerPushingAnimatedKey;
