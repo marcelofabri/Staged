@@ -111,6 +111,18 @@ describe(@"navigation controller popping", ^{
         expect(verifier.topViewController).to.equal(barViewController);
         expect(verifier.poppedAnimated).to.beFalsy();
     });
+
+    it(@"can set a whole new set of view controllers", ^{
+        UIViewController *fooViewController = [[UIViewController alloc] init];
+        UIViewController *barViewController = [[UIViewController alloc] init];
+
+        [navigationController setViewControllers:@[fooViewController, barViewController] animated:YES];
+
+        expect(verifier.viewControllers).to.haveCountOf(2);
+        expect(verifier.viewControllers).toNot.contain(rootViewController);
+        expect(verifier.topViewController).to.equal(barViewController);
+        expect(verifier.pushedAnimated).to.beTruthy();
+    });
 });
 
 SpecEnd

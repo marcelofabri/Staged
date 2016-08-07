@@ -13,6 +13,7 @@ NSString * const STGViewControllerWasPushedNotificationName = @"STGViewControlle
 NSString * const STGViewControllerWasPoppedNotificationName = @"STGViewControllerWasPoppedNotificationName";
 NSString * const STGViewControllerWasPoppedToRootNotificationName = @"STGViewControllerWasPoppedToRootNotificationName";
 NSString * const STGViewControllerWasPoppedToViewControllerNotificationName = @"STGViewControllerWasPoppedToViewControllerNotificationName";
+NSString * const STGNavigationControllerItemsWereSetNotificationName = @"STGNavigationControllerItemsWereSetNotificationName";
 
 NSString * const STGViewControllerPushingAnimatedKey = @"STGViewControllerPushingAnimatedKey";
 NSString * const STGViewControllerPoppingAnimatedKey = @"STGViewControllerPoppingAnimatedKey";
@@ -31,6 +32,9 @@ NSString * const STGViewControllerPoppingAnimatedKey = @"STGViewControllerPoppin
 
     [self stg_replaceInstanceMethod:@selector(popToViewController:animated:)
                          withMethod:@selector(stg_popToViewController:animated:)];
+
+    [self stg_replaceInstanceMethod:@selector(setViewControllers:animated:)
+                         withMethod:@selector(stg_setViewControllers:animated:)];
 }
 
 - (void)stg_pushViewController:(UIViewController *)viewControllerToPush
@@ -64,6 +68,14 @@ NSString * const STGViewControllerPoppingAnimatedKey = @"STGViewControllerPoppin
                       object:viewControllerToStayOnTop
                     userInfo:@{STGViewControllerPoppingAnimatedKey: @(flag)}];
     return @[];
+}
+
+- (void)stg_setViewControllers:(NSArray<UIViewController *> *)viewControllersToSet
+                      animated:(BOOL)flag {
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:STGNavigationControllerItemsWereSetNotificationName
+                      object:viewControllersToSet
+                    userInfo:@{STGViewControllerPushingAnimatedKey: @(flag)}];
 }
 
 @end

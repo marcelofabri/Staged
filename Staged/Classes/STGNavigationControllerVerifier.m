@@ -36,6 +36,10 @@ static void swizzleMocks() {
                                                  selector:@selector(navigationWasPoppedToViewController:)
                                                      name:STGViewControllerWasPoppedToViewControllerNotificationName
                                                    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(navigationWasReset:)
+                                                     name:STGNavigationControllerItemsWereSetNotificationName
+                                                   object:nil];
 
         swizzleMocks();
     }
@@ -90,6 +94,12 @@ static void swizzleMocks() {
     }
     self.viewControllers = viewControllers;
     self.poppedAnimated = [notification.userInfo[STGViewControllerPoppingAnimatedKey] boolValue];
+}
+
+- (void)navigationWasReset:(NSNotification *)notification {
+    NSArray<UIViewController *> *viewControllersToSet = notification.object;
+    self.viewControllers = viewControllersToSet;
+    self.pushedAnimated = [notification.userInfo[STGViewControllerPushingAnimatedKey] boolValue];
 }
 
 @end
