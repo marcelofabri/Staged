@@ -32,6 +32,10 @@ static void swizzleMocks() {
                                                  selector:@selector(navigationWasPoppedToRoot:)
                                                      name:STGViewControllerWasPoppedToRootNotificationName
                                                    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(navigationWasPoppedToViewController:)
+                                                     name:STGViewControllerWasPoppedToViewControllerNotificationName
+                                                   object:nil];
 
         swizzleMocks();
     }
@@ -65,6 +69,23 @@ static void swizzleMocks() {
 - (void)navigationWasPoppedToRoot:(NSNotification *)notification {
     NSMutableArray *viewControllers = [self.viewControllers mutableCopy];
     while (viewControllers.count > 1) {
+        [viewControllers removeLastObject];
+    }
+    self.viewControllers = viewControllers;
+    self.poppedAnimated = [notification.userInfo[STGViewControllerPoppingAnimatedKey] boolValue];
+}
+
+- (void)navigationWasPoppedToViewController:(NSNotification *)notification {
+    UIViewController *viewControllerToStayOnTop = notification.object;
+    if (![self.viewControllers containsObject:viewControllerToStayOnTop]) {
+        return;
+    }
+
+    NSMutableArray *viewControllers = [self.viewControllers mutableCopy];
+    while (viewControllers.count > 1) {
+        if ([viewControllers.lastObject isEqual:viewControllerToStayOnTop]) {
+            break;
+        }
         [viewControllers removeLastObject];
     }
     self.viewControllers = viewControllers;

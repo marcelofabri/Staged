@@ -11,6 +11,7 @@
 FOUNDATION_EXPORT NSString *const STGViewControllerWasPushedNotificationName;
 FOUNDATION_EXPORT NSString *const STGViewControllerWasPoppedNotificationName;
 FOUNDATION_EXPORT NSString *const STGViewControllerWasPoppedToRootNotificationName;
+FOUNDATION_EXPORT NSString *const STGViewControllerWasPoppedToViewControllerNotificationName;
 
 FOUNDATION_EXPORT NSString *const STGViewControllerPushingAnimatedKey;
 FOUNDATION_EXPORT NSString *const STGViewControllerPoppingAnimatedKey;

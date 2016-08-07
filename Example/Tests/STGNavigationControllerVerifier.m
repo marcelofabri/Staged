@@ -64,8 +64,8 @@ describe(@"navigation controller popping", ^{
     });
 
     it(@"can pop 1 element", ^{
-        UIViewController *fooViewController = [[UIViewController alloc] init];
-        [navigationController pushViewController:fooViewController animated:YES];
+        UIViewController *secondViewController = [[UIViewController alloc] init];
+        [navigationController pushViewController:secondViewController animated:YES];
 
         [navigationController popViewControllerAnimated:YES];
 
@@ -84,6 +84,32 @@ describe(@"navigation controller popping", ^{
         expect(verifier.viewControllers).to.haveCountOf(1);
         expect(verifier.topViewController).to.equal(rootViewController);
         expect(verifier.poppedAnimated).to.beTruthy();
+    });
+
+    it(@"can pop to a specific view controller", ^{
+        UIViewController *fooViewController = [[UIViewController alloc] init];
+        [navigationController pushViewController:fooViewController animated:YES];
+
+        UIViewController *barViewController = [[UIViewController alloc] init];
+        [navigationController pushViewController:barViewController animated:YES];
+
+        [navigationController popToViewController:fooViewController animated:YES];
+
+        expect(verifier.viewControllers).to.haveCountOf(2);
+        expect(verifier.topViewController).to.equal(fooViewController);
+        expect(verifier.poppedAnimated).to.beTruthy();
+    });
+
+    it(@"cannot pop to a specific view controller if it's not on the stack", ^{
+        UIViewController *fooViewController = [[UIViewController alloc] init];
+        UIViewController *barViewController = [[UIViewController alloc] init];
+        [navigationController pushViewController:barViewController animated:YES];
+
+        [navigationController popToViewController:fooViewController animated:YES];
+
+        expect(verifier.viewControllers).to.haveCountOf(2);
+        expect(verifier.topViewController).to.equal(barViewController);
+        expect(verifier.poppedAnimated).to.beFalsy();
     });
 });
 

@@ -12,6 +12,7 @@
 NSString * const STGViewControllerWasPushedNotificationName = @"STGViewControllerWasPushedNotificationName";
 NSString * const STGViewControllerWasPoppedNotificationName = @"STGViewControllerWasPoppedNotificationName";
 NSString * const STGViewControllerWasPoppedToRootNotificationName = @"STGViewControllerWasPoppedToRootNotificationName";
+NSString * const STGViewControllerWasPoppedToViewControllerNotificationName = @"STGViewControllerWasPoppedToViewControllerNotificationName";
 
 NSString * const STGViewControllerPushingAnimatedKey = @"STGViewControllerPushingAnimatedKey";
 NSString * const STGViewControllerPoppingAnimatedKey = @"STGViewControllerPoppingAnimatedKey";
@@ -27,6 +28,9 @@ NSString * const STGViewControllerPoppingAnimatedKey = @"STGViewControllerPoppin
 
     [self stg_replaceInstanceMethod:@selector(popToRootViewControllerAnimated:)
                          withMethod:@selector(stg_popToRootViewControllerAnimated:)];
+
+    [self stg_replaceInstanceMethod:@selector(popToViewController:animated:)
+                         withMethod:@selector(stg_popToViewController:animated:)];
 }
 
 - (void)stg_pushViewController:(UIViewController *)viewControllerToPush
@@ -49,6 +53,15 @@ NSString * const STGViewControllerPoppingAnimatedKey = @"STGViewControllerPoppin
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc postNotificationName:STGViewControllerWasPoppedToRootNotificationName
                       object:nil
+                    userInfo:@{STGViewControllerPoppingAnimatedKey: @(flag)}];
+    return @[];
+}
+
+- (NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewControllerToStayOnTop
+                                            animated:(BOOL)flag {
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:STGViewControllerWasPoppedToViewControllerNotificationName
+                      object:viewControllerToStayOnTop
                     userInfo:@{STGViewControllerPoppingAnimatedKey: @(flag)}];
     return @[];
 }
