@@ -61,7 +61,7 @@ NSString * const STGViewControllerPoppingAnimatedKey = @"STGViewControllerPoppin
     return @[];
 }
 
-- (NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewControllerToStayOnTop
+- (NSArray<UIViewController *> *)stg_popToViewController:(UIViewController *)viewControllerToStayOnTop
                                             animated:(BOOL)flag {
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc postNotificationName:STGNavigationControllerWasPoppedToViewControllerNotificationName
