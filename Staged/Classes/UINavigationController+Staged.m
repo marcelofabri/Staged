@@ -50,7 +50,7 @@ NSString * const STGViewControllerPoppingAnimatedKey = @"STGViewControllerPoppin
     [nc postNotificationName:STGViewControllerWasPoppedNotificationName
                       object:self.topViewController
                     userInfo:@{STGViewControllerPoppingAnimatedKey: @(flag)}];
-    return nil;
+    return self.topViewController;
 }
 
 - (NSArray<UIViewController *> *)stg_popToRootViewControllerAnimated:(BOOL)flag {
@@ -58,7 +58,12 @@ NSString * const STGViewControllerPoppingAnimatedKey = @"STGViewControllerPoppin
     [nc postNotificationName:STGNavigationControllerWasPoppedToRootNotificationName
                       object:nil
                     userInfo:@{STGViewControllerPoppingAnimatedKey: @(flag)}];
-    return @[];
+
+    if (self.viewControllers.count == 0) {
+        return @[];
+    }
+
+    return [self.viewControllers subarrayWithRange:NSMakeRange(1, self.viewControllers.count - 1)];
 }
 
 - (NSArray<UIViewController *> *)stg_popToViewController:(UIViewController *)viewControllerToStayOnTop
@@ -67,7 +72,14 @@ NSString * const STGViewControllerPoppingAnimatedKey = @"STGViewControllerPoppin
     [nc postNotificationName:STGNavigationControllerWasPoppedToViewControllerNotificationName
                       object:viewControllerToStayOnTop
                     userInfo:@{STGViewControllerPoppingAnimatedKey: @(flag)}];
-    return @[];
+
+    NSUInteger topViewControllerIndex = [self.viewControllers indexOfObject:viewControllerToStayOnTop];
+    if (topViewControllerIndex == NSNotFound) {
+        return @[];
+    }
+
+    NSRange range = NSMakeRange(topViewControllerIndex, self.viewControllers.count - topViewControllerIndex);
+    return [self.viewControllers subarrayWithRange:range];
 }
 
 - (void)stg_setViewControllers:(NSArray<UIViewController *> *)viewControllersToSet

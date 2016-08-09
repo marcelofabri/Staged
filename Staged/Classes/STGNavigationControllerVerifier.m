@@ -52,7 +52,7 @@ static void swizzleMocks() {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (UIViewController  * _Nullable )topViewController {
+- (nonnull UIViewController  *)topViewController {
     return _viewControllers.lastObject;
 }
 
@@ -71,11 +71,7 @@ static void swizzleMocks() {
 }
 
 - (void)navigationWasPoppedToRoot:(NSNotification *)notification {
-    NSMutableArray *viewControllers = [self.viewControllers mutableCopy];
-    while (viewControllers.count > 1) {
-        [viewControllers removeLastObject];
-    }
-    self.viewControllers = viewControllers;
+    self.viewControllers = @[self.viewControllers.firstObject];
     self.poppedAnimated = [notification.userInfo[STGViewControllerPoppingAnimatedKey] boolValue];
 }
 

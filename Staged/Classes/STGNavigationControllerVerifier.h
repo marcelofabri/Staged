@@ -10,8 +10,8 @@
 
 @interface STGNavigationControllerVerifier: NSObject
 
-@property (nonatomic, copy) NSArray<__kindof UIViewController *> * _Nonnull viewControllers;
-@property (nonatomic, readonly) __kindof UIViewController  * _Nullable topViewController;
+@property (nonatomic, copy, nonnull) NSArray<__kindof UIViewController *> *viewControllers;
+@property (nonatomic, readonly, nonnull) __kindof UIViewController *topViewController;
 @property (nonatomic) BOOL pushedAnimated;
 @property (nonatomic) BOOL poppedAnimated;
 
