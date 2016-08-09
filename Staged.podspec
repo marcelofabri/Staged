@@ -16,6 +16,10 @@ Staged allows you to easily mock View Controllers presentations and dismissals, 
 
   s.source_files = 'Staged/Classes/**/*'
   
-  s.public_header_files = 'Staged/Classes/STGViewControllerVerifier.h'
+  s.public_header_files = [
+    'Staged/Classes/STGViewControllerVerifier.h',
+    'Staged/Classes/STGNavigationControllerVerifier.h'
+  ]
+
   s.frameworks = 'UIKit'
 end

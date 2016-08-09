@@ -20,6 +20,9 @@
     "ios": "8.0"
   },
   "source_files": "Staged/Classes/**/*",
-  "public_header_files": "Staged/Classes/STGViewControllerVerifier.h",
+  "public_header_files": [
+    "Staged/Classes/STGViewControllerVerifier.h",
+    "Staged/Classes/STGNavigationControllerVerifier.h"
+  ],
   "frameworks": "UIKit"
 }
